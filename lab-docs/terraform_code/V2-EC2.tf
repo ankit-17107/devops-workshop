@@ -6,7 +6,9 @@ resource "aws_instance" "demo-server" {
     ami = "ami-0ebfd941bbafe70c6"
     instance_type = "t2.micro"
     key_name = "dpp"
-    security_group= [ "demo-sg" ]
+    vpc_security_group_ids = [aws_security_group.demo-sg.id]
+    # security_group = [ "demo-sg" ]
+    # # security_groups= [ "demo-sg" ]
 }
 
 
